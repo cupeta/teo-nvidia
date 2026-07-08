@@ -1,0 +1,67 @@
+#!/bin/bash
+
+set -ouex pipefail
+
+### Install packages
+# Packages can be installed from any enabled yum repo on the image.
+# RPMfusion repos are available by default in ublue main images
+# List of rpmfusion packages can be found here:
+#https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
+#greeter
+#dnf -y install ly
+
+
+### EXTRA (apps that can't be installed with dnf)
+#mkdir /extra
+#mkdir /extra/bin
+#add extra/bin path to system-wide bashrc and etc/profile
+#echo 'export PATH="$PATH:/extra/bin"' | sudo tee -a /etc/bash.bashrc
+#echo 'export PATH="$PATH:/extra/bin"' | sudo tee /etc/profile.d/extra_bin.sh
+#sudo chmod +x /etc/profile.d/extra_bin.sh
+
+#enable Hyprland repo
+#dnf -y copr enable craftidore/hyprland-prerelease-track
+#Install Hyprland  & plugins
+#dnf -y install  hyprland hyprsunset hyprpaper hyprpolkitagent hyprland-guiutils
+
+#gtk customization tool
+dnf -y install nwg-look
+#waybar
+dnf -y install waybar
+#install tailscale
+dnf -y install tailscale
+
+#other apps
+dnf -y install ghostty firefox telegram-desktop easyeffects qpwgraph wofi pcmanfm 
+
+dnf -y install wlsunset
+
+dnf -y install niri
+
+# Use a COPR Example:
+#
+# dnf5 -y copr enable ublue-os/staging
+# dnf5 -y install package
+# Disable COPRs so they don't end up enabled on the final image:
+# dnf5 -y copr disable ublue-os/staging
+
+dnf -y enabl
+
+##install Musescore
+bash /ctx/musescore.sh
+##install Reaper
+bash /ctx/reaper.sh
+
+#### enable systemd units
+systemctl enable podman.socket
+systemctl enable tailscaled
+#systemctl disable getty@tty2.service
+#systemctl enable ly@tty2.service
+#systemctl enable sshd
+
+#save log of currently installed packages
+#echo $(dnf list --installed) > /etc/installed-packages.log
+# Clean up dnf cache to reduce image size
+dnf -y clean all
+rm -rf /run/dnf /run/selinux-policy
+rm -rf /var/lib/dnf
