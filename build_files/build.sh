@@ -44,8 +44,8 @@ dnf -y install ghostty
 dnf -y install pcmanfm
 # ark for opening archives
 dnf -y install ark 7zip unrar
-# web browser
-dnf -y install firefox
+# web browser & internet tools
+dnf -y install firefox transmission
 # audio utils
 dnf -y install qpwgraph easyeffects vlc
 # office & productiviy
