@@ -68,6 +68,11 @@ bash /ctx/moonlight.sh
 # cosign for OCI image signing
 bash /ctx/cosign.sh
 
+#AI 
+#requirments for unsloth
+dnf -y install cmake git gcc gcc-c++ make libcurl-devel
+
+
 # MUSIC PRODUCTION
 # ycollect/audinux repo with many audio plugins
 dnf -y copr enable ycollet/audinux
