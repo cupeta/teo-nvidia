@@ -5,8 +5,7 @@ COPY system_files /system_files
 
 # Base Image
 #pointing to latest digest known to work
-FROM quay.io/rakuos/rakuos-base-nvidia@sha256:d735f16d4b6294e531cc6ef6c3d475ec839a0b34c4608fa9b03b98d631a46423
-
+FROM sudo podman pull quay.io/rakuos/rakuos-base-nvidia@sha256:8a9ff17857d720eaea0b39ba1d592854fe5f4d9ea554f2d46c9c2e5226296c34
 # check latest image digest
 RUN skopeo inspect docker://quay.io/rakuos/rakuos-base-nvidia:latest | jq -r '.Digest'
 
