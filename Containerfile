@@ -3,12 +3,12 @@ FROM scratch AS ctx
 COPY build_files /
 COPY system_files /system_files
 
-# check latest image digest
-RUN skopeo inspect docker://quay.io/rakuos/rakuos-base-nvidia:latest | jq -r '.Digest'
-
 # Base Image
 #pointing to latest digest known to work
 FROM quay.io/rakuos/rakuos-base-nvidia@sha256:d735f16d4b6294e531cc6ef6c3d475ec839a0b34c4608fa9b03b98d631a46423
+
+# check latest image digest
+RUN skopeo inspect docker://quay.io/rakuos/rakuos-base-nvidia:latest | jq -r '.Digest'
 
 #edit os ID (to use fedora COPR in dnf)
 RUN sed -i 's/^ID=.*/ID=fedora/' /etc/os-release
