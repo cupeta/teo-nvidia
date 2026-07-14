@@ -3,11 +3,8 @@ repo="moonlight-stream/moonlight-qt"
 install_dir=/opt
 bin_dir=/opt/bin
 bin=moonlight
-appimage=$(curl -s https://api.github.com/repos/$repo/releases/latest | grep -o "[^\"]*x86_64.AppImage" | head -1)
-echo "appimage name: $appimage"
-
-url=https://github.com/$repo/releases/latest/download/$appimage
-echo "the download url is $url"
+url=https://github.com/moonlight-stream/moonlight-qt/releases/download/v6.1.0/Moonlight-6.1.0-x86_64.AppImage
+appimage=Moonlight-6.1.0-x86_64.AppImage
 
 wget "$url" -P $install_dir
 
