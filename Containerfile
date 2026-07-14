@@ -1,7 +1,7 @@
-#argument for Base Image --mh
+#argument for base image --mh
 ARG BASE_IMAGE=quay.io/rakuos/rakuos-base-nvidia
 
-#specify tag (e.g :latest , :staging) or digest (@sha256:1234xxxxxxxxxxxxxxxx).
+#argument for tag (e.g :latest , :staging) or digest (@sha256:1234abcd...) --mh
 #default is ARG TAG_OR_DIGEST=:latest  --mh
 ARG TAG_OR_DIGEST=@sha256:8a9ff17857d720eaea0b39ba1d592854fe5f4d9ea554f2d46c9c2e5226296c34
 
@@ -12,11 +12,11 @@ COPY system_files /system_files
 
 FROM ${BASE_IMAGE}${TAG_OR_DIGEST}
 
-# check latest image digest --mh
+# check :latest digest of current base image --mh
 ARG BASE_IMAGE
 RUN echo latest digest for image $BASE_IMAGE is: $(skopeo inspect docker://$BASE_IMAGE:latest | jq -r '.Digest')
 
-#edit os ID (to use fedora COPR in dnf) --morrolinux
+#edit os ID to use fedora COPR in dnf,from morrolinux --mh
 RUN sed -i 's/^ID=.*/ID=fedora/' /etc/os-release
 
 ## Other possible base images include:
