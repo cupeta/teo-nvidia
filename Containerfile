@@ -7,7 +7,7 @@ COPY system_files /system_files
 #pointing to latest digest known to work
 FROM quay.io/rakuos/rakuos-base-nvidia@sha256:8a9ff17857d720eaea0b39ba1d592854fe5f4d9ea554f2d46c9c2e5226296c34
 # check latest image digest
-RUN echo (latest image digest: $skopeo inspect docker://quay.io/rakuos/rakuos-base-nvidia:latest | jq -r '.Digest')
+RUN echo "latest image digest: $(skopeo inspect docker://quay.io/rakuos/rakuos-base-nvidia:latest | jq -r '.Digest')
 
 #edit os ID (to use fedora COPR in dnf)
 RUN sed -i 's/^ID=.*/ID=fedora/' /etc/os-release
