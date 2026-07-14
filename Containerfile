@@ -4,8 +4,8 @@ COPY build_files /
 COPY system_files /system_files
 
 # Base Image
-FROM quay.io/rakuos/rakuos-base-nvidia
 RUN skopeo inspect docker://quay.io/rakuos/rakuos-base-nvidia:latest | jq -r '.Digest'
+FROM quay.io/rakuos/rakuos-base-nvidia
 RUN sed -i 's/^ID=.*/ID=fedora/' /etc/os-release
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:testing
