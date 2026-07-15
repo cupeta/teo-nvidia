@@ -18,7 +18,7 @@ ARG BASE_IMAGE
 RUN echo latest digest for image $BASE_IMAGE is: $(skopeo inspect docker://$BASE_IMAGE:latest | jq -r '.Digest')
 
 #edit os ID to use fedora COPR in dnf,from morrolinux --mh
-RUN sed -i 's/^ID=.*/ID=fedora/' /etc/os-release
+#RUN sed -i 's/^ID=.*/ID=fedora/' /etc/os-release
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:testing
