@@ -35,7 +35,7 @@ dnf -y install waybar
 # wofi (menu and app launcher)
 dnf -y install wofi
 # gtk customization tool
-#dnf -y install nwg-look
+dnf -y install nwg-look
 
 # DESKTOP APPS
 # terminal
