@@ -101,6 +101,11 @@ dnf -y install steam lutris heroic-games-launcher lact goverlay mangohud mangohu
 dnf -y install prismlauncher
 
 #POST INSTALL
+
+#listing installed nvidia packages
+dnf list --installed | grep "nvidia"
+
+
 # enable systemd units
 systemctl enable podman.socket
 systemctl enable tailscaled
@@ -108,6 +113,7 @@ systemctl enable tailscaled
 dnf -y clean all
 rm -rf /run/dnf /run/selinux-policy
 rm -rf /var/lib/dnf
+
 
 ############################
 # Install packages
