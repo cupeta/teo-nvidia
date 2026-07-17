@@ -3,8 +3,8 @@ ARG BASE_IMAGE=quay.io/rakuos/rakuos-base-nvidia
 
 #argument for tag (e.g :latest , :staging) or digest (@sha256:1234abcd...) --mh
 #default is ARG TAG_OR_DIGEST=:latest  --mh
-#ARG TAG_OR_DIGEST=:latest
-ARG TAG_OR_DIGEST=@sha256:8a9ff17857d720eaea0b39ba1d592854fe5f4d9ea554f2d46c9c2e5226296c34
+ARG TAG_OR_DIGEST=:latest
+#ARG TAG_OR_DIGEST=@sha256:8a9ff17857d720eaea0b39ba1d592854fe5f4d9ea554f2d46c9c2e5226296c34
 
 
 # Allow build scripts to be referenced without being copied into the final image
