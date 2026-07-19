@@ -100,6 +100,9 @@ dnf -y install steam lutris heroic-games-launcher lact goverlay mangohud mangohu
 # Prismlauncher for Minecraft
 dnf -y install prismlauncher
 
+#VIRTUAL MACHINES
+dnf -y install quickemu
+
 #POST INSTALL
 
 #listing installed nvidia packages
