@@ -28,6 +28,7 @@ dnf -y install nvtop
 # DESKTOP ENVIRONMENT
 # ly greeter
 bash /ctx/ly.sh
+dnf -y rm cosmic-greeter
 # Hyprland window manager
 bash /ctx/hyprland.sh
 # waybar
