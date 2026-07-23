@@ -37,7 +37,7 @@ dnf -y install wofi
 # gtk customization tool
 dnf -y install nwg-look
 #lxqt desktop manager
-dnf -y lxqt
+dnf -y lxqt-desktop
 
 # DESKTOP APPS
 # terminal
