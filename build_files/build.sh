@@ -78,10 +78,11 @@ dnf -y install cmake git gcc gcc-c++ make libcurl-devel
 dnf -y copr enable ycollet/audinux
 # fix for apps loking for libjack.so in /usr/lib64
 ln -s /usr/lib64/pipewire-0.3/jack/libjack.so.0 /usr/lib64/libjack.so
-# libraries for some lv2\clap plugins to work
+# libraries for some audio plugins to work correctly
+dnf -y lv2-gtk-ui-bridge
 dnf -y install juce zenity
 # DAW plugins
-dnf -y install sfizz-ui guitarix lsp-plugins
+dnf -y install guitarix lsp-plugins
 # install Musescore music sheet editor
 bash /ctx/musescore.sh
 # install Reaper
