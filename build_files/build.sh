@@ -22,6 +22,8 @@ dnf -y install cifs-utils
 # Tailscale for private vpn
 dnf -y install tailscale
 
+#cuda drivers for llm
+dnf -y install nvidia-driver-cuda
 # nvtop for monitoring nvidia gpu
 dnf -y install nvtop
 
@@ -53,7 +55,7 @@ dnf -y install qpwgraph easyeffects vlc
 # office & productiviy
 dnf -y install libreoffice mousepad homebank galculator telegram-desktop
 # graphic design & photo editing
-dnf -y install inkscape gimp
+dnf -y install inkscape gimp blender
 # kmonad for keyboard macros
 dnf -y install kmonad
 
