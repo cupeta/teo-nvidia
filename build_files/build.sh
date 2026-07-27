@@ -28,8 +28,7 @@ dnf -y install nvidia-driver-cuda
 dnf -y install nvtop
 
 # DESKTOP ENVIRONMENT
-# ly greeter
-bash /ctx/ly.sh
+
 # Hyprland window manager
 bash /ctx/hyprland.sh
 # waybar
@@ -113,6 +112,8 @@ dnf -y install quickemu
 #listing installed nvidia packages
 dnf list --installed | grep "nvidia"
 
+#greeter
+bash /ctx/ly.sh
 
 # enable systemd units
 systemctl enable podman.socket
@@ -121,7 +122,6 @@ systemctl enable tailscaled
 dnf -y clean all
 rm -rf /run/dnf /run/selinux-policy
 rm -rf /var/lib/dnf
-
 
 ############################
 # Install packages
