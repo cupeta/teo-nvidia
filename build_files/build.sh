@@ -59,6 +59,8 @@ dnf -y install inkscape gimp blender
 dnf -y install kmonad
 
 # REMOTE DEKSTOP
+#wf-recorder for screen sharing
+dnf -y install wf-recorder
 # Sunshine (server)
 dnf copr enable -y lizardbyte/stable
 dnf -y install sunshine
