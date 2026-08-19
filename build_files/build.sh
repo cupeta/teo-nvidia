@@ -21,12 +21,13 @@ dnf -y install power-profiles-daemon  --allowerasing
 dnf -y install cifs-utils
 # Tailscale for private vpn
 dnf -y install tailscale
+#drivers for connecting android devices
+dnf -y install android-tools
 
 #cuda drivers for llm
 dnf -y install nvidia-driver-cuda
 # nvtop for monitoring nvidia gpu
 dnf -y install nvtop
-
 # DESKTOP ENVIRONMENT
 
 # Hyprland window manager
@@ -46,7 +47,7 @@ dnf -y install ghostty
 # file manager
 dnf -y install pcmanfm
 # ark for opening archives
-dnf -y install ark 7zip unrar
+dnf -y install ark
 # web browser & internet tools
 dnf -y install firefox transmission
 # audio utils
