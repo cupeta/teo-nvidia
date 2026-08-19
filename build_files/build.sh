@@ -113,7 +113,7 @@ dnf -y install quickemu
 #POST INSTALL
 
 #listing installed nvidia packages
-dnf list --installed | grep "nvidia"
+#dnf list --installed | grep "nvidia"
 
 #greeter
 bash /ctx/ly.sh
