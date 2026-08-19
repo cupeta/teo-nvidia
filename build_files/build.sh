@@ -64,7 +64,7 @@ dnf -y install kmonad
 dnf -y install wf-recorder
 # Sunshine (server)
 dnf copr enable -y lizardbyte/stable
-dnf -y install sunshine
+dnf -y install Sunshine
 # Moonlight (client)
 bash /ctx/moonlight.sh
 
