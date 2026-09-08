@@ -1,5 +1,5 @@
 #enable Hyprland repo
-dnf -y copr enable craftidore/hyprland-prerelease-track
+dnf -y copr enable sachesi/hyprland
 #Install Hyprland  & plugins
 dnf -y install  hyprland hyprsunset hyprpaper hyprpolkitagent hyprland-guiutils
 
