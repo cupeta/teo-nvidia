@@ -1,7 +1,7 @@
 #enable Hyprland repo
 dnf -y copr enable craftidore/wayblueorg-hyprland
 #Install Hyprland  & plugins
-dnf -y install  hyprland hyprsunset hyprpaper hyprpolkitagent hyprland-guiutils
+dnf -y install  hyprland-git hyprsunset hyprpaper hyprpolkitagent hyprland-guiutils
 
 ### fix for screen sharing
 cat > /usr/lib/systemd/user/xdg-desktop-portal.service << EOF
