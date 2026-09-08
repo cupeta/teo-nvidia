@@ -1,5 +1,5 @@
 #enable Hyprland repo
-dnf -y copr enable solopasha/hyprland
+dnf -y copr enable craftidore/wayblueorg-hyprland
 #Install Hyprland  & plugins
 dnf -y install  hyprland hyprsunset hyprpaper hyprpolkitagent hyprland-guiutils
 
