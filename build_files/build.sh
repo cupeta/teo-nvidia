@@ -4,9 +4,6 @@ set -ouex pipefail
 
 # dnf speedup
 sed -i '/^\[main\]/a max_parallel_downloads=10' /etc/dnf/dnf.conf
-
-#testing terra repo
-sudo dnf install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release terra-gpg-keys
 # set up custom /opt/bin folder for extra apps (non-dnf software,like AppImages)
 mkdir /opt/bin
 # add /opt/bin path to system-wide bashrc and etc/profile
