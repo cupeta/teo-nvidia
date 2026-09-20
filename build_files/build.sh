@@ -43,7 +43,7 @@ dnf -y install @xfce-desktop
 
 # DESKTOP APPS
 # terminal
-dnf -y install ghostty-nightly
+#dnf -y install ghostty-nightly
 # file manager
 dnf -y install pcmanfm
 # ark for opening archives
