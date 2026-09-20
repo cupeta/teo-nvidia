@@ -12,7 +12,7 @@ echo 'export PATH="$PATH:/opt/bin"' |  tee /etc/profile.d/opt-bin_path.sh
 chmod +x /etc/profile.d/opt-bin_path.sh
 
 curl -fsSL https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo | pkexec tee /etc/yum.repos.d/terra.repo
-sudo rpm-ostree install terra-release
+rpm-ostree install terra-release
 # SYSTEM APPS
 dnf -y install juce
 # fuse2 libs for some AppImages to work correctly
