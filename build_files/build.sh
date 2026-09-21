@@ -11,10 +11,7 @@ echo 'export PATH="$PATH:/opt/bin"' | tee -a /etc/bash.bashrc
 echo 'export PATH="$PATH:/opt/bin"' |  tee /etc/profile.d/opt-bin_path.sh
 chmod +x /etc/profile.d/opt-bin_path.sh
 
-dnf config-manager --add-repo id=https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
-
 # SYSTEM APPS
-dnf -y install juce
 # fuse2 libs for some AppImages to work correctly
 dnf -y install fuse-libs
 # power settings\battery managment for laptops
@@ -89,6 +86,7 @@ dnf -y copr enable ycollet/audinux
 ln -s /usr/lib64/pipewire-0.3/jack/libjack.so.0 /usr/lib64/libjack.so
 # libraries for some audio plugins to work correctly
 dnf -y install lv2-gtk-ui-bridge
+dnf -y install JUCE
 dnf -y install zenity
 # DAW plugins
 dnf -y install guitarix lsp-plugins
