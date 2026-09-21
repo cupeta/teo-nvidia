@@ -11,7 +11,6 @@ echo 'export PATH="$PATH:/opt/bin"' | tee -a /etc/bash.bashrc
 echo 'export PATH="$PATH:/opt/bin"' |  tee /etc/profile.d/opt-bin_path.sh
 chmod +x /etc/profile.d/opt-bin_path.sh
 
-curl -fsSL ht
 dnf config-manager --add-repo https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
 
 # SYSTEM APPS
