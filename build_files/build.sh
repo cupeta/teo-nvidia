@@ -11,7 +11,7 @@ echo 'export PATH="$PATH:/opt/bin"' | tee -a /etc/bash.bashrc
 echo 'export PATH="$PATH:/opt/bin"' |  tee /etc/profile.d/opt-bin_path.sh
 chmod +x /etc/profile.d/opt-bin_path.sh
 
-dnf config-manager --add-repo https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
+dnf config-manager --add-repo id=https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
 
 # SYSTEM APPS
 dnf -y install juce
