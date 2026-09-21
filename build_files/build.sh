@@ -105,7 +105,7 @@ dnf -y install ffmpeg x264-libs obs-studio obs-studio-plugin-x264 --allowerasing
 
 # GAMING
 # packages copied from rakuos setup-gaming
-dnf -y enable copr atim/heroic-games-launcher
+dnf -y copr enable atim/heroic-games-launcher
 dnf -y install steam lutris heroic-games-launcher lact goverlay mangohud mangohud.i686 protonplus protontricks vkBasalt vkBasalt.i686
 # Prismlauncher for Minecraft
 dnf -y install prismlauncher
