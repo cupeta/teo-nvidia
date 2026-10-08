@@ -24,7 +24,7 @@ dnf -y install tailscale
 dnf -y install android-tools
 
 #cuda drivers for llm
-dnf -y install nvidia-driver-cuda
+--dnf -y install nvidia-driver-cuda
 # nvtop for monitoring nvidia gpu
 dnf -y install nvtop
 # DESKTOP ENVIRONMENT
