@@ -59,6 +59,5 @@ RUN rm -rf \
     /run/pluto \
     /run/pppd \
     /run/strongswan
-.. 
  ## Verify final image and contents are correct.
 RUN bootc container lint
