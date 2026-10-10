@@ -124,7 +124,7 @@ bash /ctx/ly.sh
 
 # enable systemd units
 systemctl enable podman.socket
-systemctl enable tailscaled
+#systemctl enable tailscaled
 # clean up dnf cache to reduce image size
 dnf -y clean all
 rm -rf /run/dnf /run/selinux-policy
