@@ -51,7 +51,8 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
     /ctx/build.sh
-
 ### LINTING
+##manually clear /run /tmp folder before lint
+RUN find /run /tmp -mindepth 1 -delete
 ## Verify final image and contents are correct.
 RUN bootc container lint
