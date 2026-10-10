@@ -57,7 +57,8 @@ RUN rm -rf \
     /run/openvpn-client \
     /run/openvpn-server \
     /run/pluto \
-    /run/pppd
-
-## Verify final image and contents are correct.
+    /run/pppd \
+    /run/strongswan
+.. 
+ ## Verify final image and contents are correct.
 RUN bootc container lint
