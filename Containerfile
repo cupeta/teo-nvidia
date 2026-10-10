@@ -53,6 +53,11 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     /ctx/build.sh
 ### LINTING
 ##manually clear /run /tmp folder before lint
-RUN find /run /tmp -mindepth 1 -delete
+RUN rm -rf \
+    /run/openvpn-client \
+    /run/openvpn-server \
+    /run/pluto \
+    /run/pppd
+
 ## Verify final image and contents are correct.
 RUN bootc container lint
