@@ -36,15 +36,29 @@ dnf -y install waybar
 # wofi (menu and app launcher)
 dnf -y install wofi
 # gtk customization tool
-dnf -y copr enable tofik/nwg-shell
-dnf -y install nwg-look
+
+export pkg=nwg-look
+export copr=tofik/nwg-shell
+if dnf -q repoquery --available --queryformat '%{name}' "$pkg" | grep -Fxq "$pkg"; then
+echo $pkg available
+else
+    dnf -y copr enable "$copr"
+fi
+dnf -y install "$pkg"
+
 #lxqt desktop manager
 dnf -y install @xfce-desktop
 
 # DESKTOP APPS
 # terminal
-dnf -y copr enable ponesicek/ghostty-bin
-dnf -y install ghostty
+export pkg=ghostty
+export copr=ponesicek/ghostty-bin
+if dnf -q repoquery --available --queryformat '%{name}' "$pkg" | grep -Fxq "$pkg"; then
+echo $pkg available
+else
+    dnf -y copr enable "$copr"
+fi
+dnf -y install "$pkg"
 # file manager
 dnf -y install pcmanfm
 # ark for opening archives
@@ -105,11 +119,26 @@ dnf -y install ffmpeg x264-libs obs-studio obs-studio-plugin-x264 --allowerasing
 
 # GAMING
 # packages copied from rakuos setup-gaming
-dnf -y copr enable atim/heroic-games-launcher
-dnf -y install steam lutris heroic-games-launcher-bin lact goverlay mangohud mangohud.i686 protonplus protontricks vkBasalt vkBasalt.i686
+
+export pkg=heroic-games-launcher-bin
+export copr=atim/heroic-games-launcher
+if dnf -q repoquery --available --queryformat '%{name}' "$pkg" | grep -Fxq "$pkg"; then
+echo $pkg available
+else
+    dnf -y copr enable "$copr"
+fi
+dnf -y install "$pkg"
+
+dnf -y install steam lutris lact goverlay mangohud mangohud.i686 protonplus protontricks vkBasalt vkBasalt.i686
 # Prismlauncher for Minecraft
-dnf -y copr enable xiaozhangup/prismlauncher
-dnf -y install prismlauncher
+export pkg=prismlaucher
+export copr=xiaozhangup/prismlauncher
+if dnf -q repoquery --available --queryformat '%{name}' "$pkg" | grep -Fxq "$pkg"; then
+echo $pkg available
+else
+    dnf -y copr enable "$copr"
+fi
+dnf -y install "$pkg"
 
 #VIRTUAL MACHINES
 dnf -y install quickemu
