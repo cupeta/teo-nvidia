@@ -120,14 +120,19 @@ dnf -y install ffmpeg x264-libs obs-studio obs-studio-plugin-x264 --allowerasing
 # GAMING
 # packages copied from rakuos setup-gaming
 
-export pkg=heroic-games-launcher-bin
-export copr=atim/heroic-games-launcher
+export pkg=heroic-games-launcher
 if dnf -q repoquery --available --queryformat '%{name}' "$pkg" | grep -Fxq "$pkg"; then
-echo $pkg available
+ echo $pkg available
+ dnf -y install "$pkg"
 else
-    dnf -y copr enable "$copr"
+    wget "$(curl -fsSL https://api.github.com/repos/Heroic-Games-Launcher/HeroicGamesLauncher/releases/latest |
+  grep 'browser_download_url' |
+  grep '\.rpm' |
+  head -n 1 |
+  cut -d '"' -f 4)"
+  dnf -y install ./Heroic*.rpm 
 fi
-dnf -y install "$pkg"
+
 
 dnf -y install steam lutris lact goverlay mangohud mangohud.i686 protonplus protontricks vkBasalt vkBasalt.i686
 # Prismlauncher for Minecraft
