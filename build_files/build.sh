@@ -137,8 +137,13 @@ if dnf -q repoquery --available --queryformat '%{name}' "$pkg" | grep -Fxq "$pkg
 echo $pkg available
 else
     dnf -y copr enable "$copr"
+    
+    if dnf -q repoquery --available --queryformat '%{name}' "$pkg" | grep -Fxq "$pkg"; then
+      dnf -y install "$pkg"
+    else
+      echo pakage $pkg not found in copr $copr
+    fi
 fi
-dnf -y install "$pkg"
 
 #VIRTUAL MACHINES
 dnf -y install quickemu
