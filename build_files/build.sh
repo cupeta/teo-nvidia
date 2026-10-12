@@ -118,7 +118,7 @@ dnf -y install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-
 dnf -y install ffmpeg x264-libs obs-studio obs-studio-plugin-x264 --allowerasing
 
 # GAMING
-rum -y setup-gaming
+rakuos -y setup-gaming
 # packages copied from rakuos setup-gaming
 #dnf -y install steam lutris lact goverlay mangohud mangohud.i686 protonplus protontricks vkBasalt vkBasalt.i686
 #export pkg=heroic-games-launcher
