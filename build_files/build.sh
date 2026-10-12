@@ -10,8 +10,6 @@ mkdir /opt/bin
 echo 'export PATH="$PATH:/opt/bin"' | tee -a /etc/bash.bashrc
 echo 'export PATH="$PATH:/opt/bin"' |  tee /etc/profile.d/opt-bin_path.sh
 chmod +x /etc/profile.d/opt-bin_path.sh
-# GAMING
-rakuos setup-gaming
 # SYSTEM APPS
 # fuse2 libs for some AppImages to work correctly
 dnf -y install fuse-libs
@@ -29,9 +27,13 @@ dnf -y install android-tools
 # nvtop for monitoring nvidia gpu
 dnf -y install nvtop
 # DESKTOP ENVIRONMENT
-
 # Hyprland window manager
+export pkg=hyprland
+if dnf -q repoquery --available --queryformat '%{name}' "$pkg" | grep -Fxq "$pkg"; then
+echo $pkg available
+else
 bash /ctx/hyprland.sh
+fi
 # waybar
 dnf -y install waybar
 # wofi (menu and app launcher)
@@ -118,21 +120,21 @@ bash /ctx/shoopdaloop.sh
 dnf -y install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 dnf -y install ffmpeg x264-libs obs-studio obs-studio-plugin-x264 --allowerasing
 
-
-# packages copied from rakuos setup-gaming
-#dnf -y install steam lutris lact goverlay mangohud mangohud.i686 protonplus protontricks vkBasalt vkBasalt.i686
-#export pkg=heroic-games-launcher
-#if dnf -q repoquery --available --queryformat '%{name}' "$pkg" | grep -Fxq "$pkg"; then
-# echo $pkg available
-# dnf -y install "$pkg"
-#else
-#    wget "$(curl -fsSL https://api.github.com/repos/Heroic-Games-Launcher/HeroicGamesLauncher/releases/latest |
+#GAMING
+# packages list copied from rakuos setup-gaming
+dnf -y install steam lutris lact goverlay mangohud mangohud.i686 protonplus protontricks vkBasalt vkBasalt.i686
+export pkg=heroic-games-launcher
+if dnf -q repoquery --available --queryformat '%{name}' "$pkg" | grep -Fxq "$pkg"; then
+ echo $pkg available
+ dnf -y install "$pkg"
+else
+  wget "$(curl -fsSL https://api.github.com/repos/Heroic-Games-Launcher/HeroicGamesLauncher/releases/latest |
   grep 'browser_download_url' |
-#  grep '\.rpm' |
-#  head -n 1 |
-#  cut -d '"' -f 4)"
-#  dnf -y install ./Heroic*.rpm 
-#fi
+  grep '\.rpm' |
+  head -n 1 |
+  cut -d '"' -f 4)"
+  dnf -y install ./Heroic*.rpm 
+fi
 # Prismlauncher for Minecraft
 export pkg=prismlaucher
 export copr=xiaozhangup/prismlauncher
