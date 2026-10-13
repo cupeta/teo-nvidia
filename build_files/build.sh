@@ -27,6 +27,8 @@ dnf -y install android-tools
 # nvtop for monitoring nvidia gpu
 dnf -y install nvtop
 # DESKTOP ENVIRONMENT
+# remove gnome
+dnf  -y remove @gnome-desktop
 # Hyprland window manager
 export pkg=hyprland
 if dnf -q repoquery --available --queryformat '%{name}' "$pkg" | grep -Fxq "$pkg"; then
@@ -48,9 +50,6 @@ else
     dnf -y copr enable "$copr"
 fi
 dnf -y install "$pkg"
-
-#lxqt desktop manager
-dnf -y install @xfce-desktop
 
 # DESKTOP APPS
 # terminal
